@@ -13,12 +13,13 @@ const RegisterForm = () => {
     const onFinish = async (values) => {
         console.log('Form values:', values)
         try {
-            await dispatch(admissionRegister(values));
+            await dispatch(admissionRegister(values)).unwrap();
             message.success('Đăng ký thành công!');
             form.resetFields();
             navigate('/');
         } catch (error) {
-            message.error('Đăng ký không thành công!');
+            console.log('error', error)
+            message.error('Đăng ký không thành công, Vui lòng kiểm tra lại email, có thể email đã được đăng ký!');
         }
     }
 
