@@ -1,0 +1,42 @@
+.ant-layout-footer {
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+    padding: 30px 0;
+    margin-top: 20px;
+    background-color: #ffffff;
+
+    .container {
+        padding: 0 75px;
+
+        a {
+            color: #373643;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        h4 {
+            margin-top: 0;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+
+            svg {
+                font-size: 18px;
+            }
+
+            .social-name {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .copywrite {
+        padding: 0 75px;
+    }
+}

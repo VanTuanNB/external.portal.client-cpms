@@ -1,0 +1,32 @@
+.news-events-container {
+    .news-events-hero {
+        position: relative;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        padding: 60px 100px;
+        margin-bottom: 40px;
+    
+        .news-events-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("https://www.tvu.edu.vn/wp-content/uploads/2021/12/dh-tra-vinh-tiep-tuc-1-1.jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+    
+        h1, p{
+            color: #063484;
+        }
+    }
+
+    .ant-list-item-meta {
+        align-items: center !important;
+        margin-block-end: 0 !important;
+    }
+}

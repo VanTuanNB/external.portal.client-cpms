@@ -1,0 +1,62 @@
+.academic-hero {
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    padding: 60px 100px;
+    margin-bottom: 40px;
+
+    .academic-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("https://www.tvu.edu.vn/wp-content/uploads/2021/12/dh-tra-vinh-tiep-tuc-1-1.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: -1;
+    }
+
+    h1, p{
+        color: #063484;
+    }
+}
+
+.faculty-container {
+    margin: 40px 0 20px;
+    padding: 30px !important;
+
+    .ant-typography {
+        margin-top: 0;
+    }
+}
+
+.training-programs-container {
+    background: #fdfdfd;
+    padding: 30px;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+    .ant-collapse-item-active {
+        border-color: #2980b9 !important;
+
+        .ant-collapse-content-active {
+            border-top: 1px solid #2980b9 !important;
+        }
+    }
+}
+
+.education-levels-container {
+    background: #fdfdfd;
+    padding: 30px;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+    .ant-card-body {
+        text-align: center;
+    }
+}

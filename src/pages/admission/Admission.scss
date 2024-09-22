@@ -1,0 +1,54 @@
+.admission-hero {
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    padding: 60px 100px;
+    margin-bottom: 40px;
+
+    .admission-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("https://www.tvu.edu.vn/wp-content/uploads/2021/12/dh-tra-vinh-tiep-tuc-1-1.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: -1;
+    }
+
+    h1, p{
+        color: #063484;
+    }
+}
+
+.admission-info-container {
+    .ant-card {
+        .ant-card-cover {
+            span {
+                box-sizing: border-box;
+            }
+        }
+
+        .ant-card-body {
+            text-align: center;
+        }
+    }
+}
+
+.popular-majors-container {
+    h2 {
+        margin-top: 0;
+    }
+
+    .ant-card {
+        .ant-card-body {
+            .ant-typography {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
