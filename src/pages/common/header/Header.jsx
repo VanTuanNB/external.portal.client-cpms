@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Button, Dropdown, Avatar, Space, Drawer } from 'antd';
+import { Layout, Menu, Button, Dropdown, Avatar, Space, Drawer, Spin } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { DownOutlined, MenuOutlined } from '@ant-design/icons';
@@ -9,7 +9,7 @@ import { selectAuthState } from '../../../store/selectors/authSelector';
 
 const { Header } = Layout;
 
-const HeaderApp = () => {
+const HeaderApp = ({ logo, loading }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -19,7 +19,7 @@ const HeaderApp = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   
   const accessToken = Cookies.get('accessToken');
-
+console.log(loading)
   const handleLogout = () => {
     Cookies.remove('accessToken');
     navigate('/login');
@@ -87,7 +87,11 @@ const HeaderApp = () => {
       <Header style={{ backgroundColor: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src="https://www.tvu.edu.vn/wp-content/uploads/2024/07/logotvu14.png" alt="Tra Vinh University" style={{ height: '40px', marginRight: '20px' }} />
+          {loading ? (
+            <Spin />
+          ) : (
+            <img src={logo} alt="Tra Vinh University" style={{ height: '40px', marginRight: '20px' }} />
+          )}
         </div>
 
         {/* Navigation Menu */}
