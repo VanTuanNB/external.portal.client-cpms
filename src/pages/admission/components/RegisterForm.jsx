@@ -1,11 +1,12 @@
 import { Card, Col, Row, Form, Input, DatePicker, Button, Typography, message } from 'antd'
-import React from 'react'
 import { admissionRegister } from '../../../store/slice/authSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom"
 
 const { Title } = Typography;
 
 const RegisterForm = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [form] = Form.useForm()
 
@@ -15,6 +16,7 @@ const RegisterForm = () => {
             await dispatch(admissionRegister(values));
             message.success('Đăng ký thành công!');
             form.resetFields();
+            navigate('/');
         } catch (error) {
             message.error('Đăng ký không thành công!');
         }
@@ -45,7 +47,7 @@ const RegisterForm = () => {
                 <Col span={24}>
                     <Card style={{ maxWidth: '800px', margin: '0 auto', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
                         <Title className='blue' level={3} style={{ textAlign: 'center', marginBottom: '20px' }}>
-                            ĐĂNG KÝ TƯ VẤN TRỰC TUYẾN 24/7
+                            ĐĂNG KÝ TUYỂN SINH TRỰC TUYẾN 24/7
                         </Title>
                         <Form
                             form={form}
@@ -56,7 +58,7 @@ const RegisterForm = () => {
                             <Row gutter={[16, 0]}>
                                 <Col xs={24} sm={12}>
                                     <Form.Item
-                                        name="fullName"
+                                        name="name"
                                         label="Họ và tên"
                                         rules={[{ required: true, message: 'Vui lòng nhập họ và tên!' }]}
                                     >
@@ -65,7 +67,7 @@ const RegisterForm = () => {
                                 </Col>
                                 <Col xs={24} sm={12}>
                                     <Form.Item
-                                        name="dateOfBirth"
+                                        name="birthday"
                                         label="Ngày sinh"
                                         rules={[{ required: true, message: 'Vui lòng chọn ngày sinh!' }]}
                                     >
@@ -86,7 +88,7 @@ const RegisterForm = () => {
                                 </Col>
                                 <Col xs={24} sm={12}>
                                     <Form.Item
-                                        name="phoneNumber"
+                                        name="phone"
                                         label="Số điện thoại"
                                         rules={[{ required: true, message: 'Vui lòng nhập số điện thoại!' }]}
                                     >
@@ -95,7 +97,7 @@ const RegisterForm = () => {
                                 </Col>
                                 <Col xs={24} sm={12}>
                                     <Form.Item
-                                        name="province"
+                                        name="address"
                                         label="Tỉnh/Thành phố"
                                         rules={[{ required: true, message: 'Vui lòng nhập tỉnh/thành phố!' }]}
                                     >
