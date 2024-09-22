@@ -29,6 +29,19 @@ const schoolSlice = createSlice({
         state.status = "succeeded";
         state.data = action.payload.data;
         state.loading = false;
+        if ( action.payload.data && action.payload.data.length > 0) {
+          const data = action.payload.data[0];
+          document.title = data.code;
+          const favicon = document.querySelector("link[rel~='icon']");
+          if (!favicon) {
+            const link = document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'type="image/png',
+            link.href = data.logoUrl || '/public/favicon_io/favicon-16x16.png';
+            document.head.appendChild(link);
+          }
+          favicon.href = data.logoUrl || '/public/favicon_io/favicon-16x16.png';
+        }
       })
       .addCase(getSchool.rejected, (state, action) => {
         state.status = "failed";

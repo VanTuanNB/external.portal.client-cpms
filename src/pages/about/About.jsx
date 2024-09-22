@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Typography, Row, Col, Card, Space, Carousel } from 'antd';
 import { CommentOutlined, BookOutlined, GlobalOutlined, ToolOutlined, SafetyCertificateOutlined, UserOutlined } from '@ant-design/icons';
 import Achievements from './components/Achievements';
@@ -6,10 +6,15 @@ import MissionVision from './components/MissionVision';
 import History from './components/History';
 import CampusInfoAndNews from './components/CampusInfoAndNews';
 import './About.scss'
+import { useSelector } from 'react-redux';
+import { selectSchoolState } from '../../store/selectors/schoolSelectors';
+
 
 const { Title, Paragraph } = Typography;
 
 const About = () => {
+  const { data, loading, error } = useSelector(selectSchoolState);
+  console.log('data', data)
   const carouselImages = [
     'https://www.tvu.edu.vn/wp-content/uploads/2021/12/anh-4.jpg',
     'https://bvtdhtv.tvu.edu.vn/wp-content/uploads/2023/09/IMG_6909.jpg',
@@ -27,25 +32,10 @@ const About = () => {
       </Carousel>
 
       <div className='content-wrapper'>
-        <Title level={2} className='blue'>Giới thiệu về Đại học Trà Vinh</Title>
-        <Paragraph>
-          Đại học Trà Vinh là một trường đại học công lập tại tỉnh Trà Vinh, Việt Nam. Được thành lập vào năm 2006,
-          trường đã nhanh chóng phát triển và trở thành một trong những cơ sở giáo dục đại học hàng đầu trong khu vực.
-        </Paragraph>
-        <Paragraph>
-          Với sứ mệnh đào tạo nguồn nhân lực chất lượng cao, Đại học Trà Vinh không ngừng đổi mới và nâng cao chất lượng giáo dục.
-          Trường cung cấp đa dạng các chương trình đào tạo từ bậc đại học đến sau đại học, đáp ứng nhu cầu học tập và nghiên cứu của sinh viên.
-        </Paragraph>
-        <Paragraph>
-          Đại học Trà Vinh tự hào với đội ngũ giảng viên giàu kinh nghiệm và tâm huyết, cơ sở vật chất hiện đại, và môi trường học tập năng động.
-          Trường cũng chú trọng phát triển các hoạt động nghiên cứu khoa học, hợp tác quốc tế, và liên kết với doanh nghiệp,
-          tạo điều kiện tốt nhất cho sinh viên phát triển toàn diện và sẵn sàng cho sự nghiệp tương lai.
-        </Paragraph>
-        <Paragraph>
-          Với những thành tựu đạt được trong giáo dục và đào tạo, Đại học Trà Vinh đã khẳng định vị thế của mình
-          không chỉ trong khu vực Đồng bằng sông Cửu Long mà còn trên toàn quốc, đóng góp tích cực vào sự phát triển
-          kinh tế - xã hội của đất nước.
-        </Paragraph>
+        <Title level={2} className='blue'>Giới thiệu về {data && data[0] ? data[0].title : 'Đại học Trà Vinh'}</Title>
+        {data?.map((school) => <Paragraph key={school.id}>{school.description}</Paragraph>)}
+       
+  
       </div>
 
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }} className="card-services">
